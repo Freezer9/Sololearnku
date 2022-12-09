@@ -1,0 +1,43 @@
+#include<stdio.h>
+
+int add(int, int);
+int subtract(int, int);
+int multiply(int, int);
+int divide(int, int);
+
+int main(){
+    int x, y, choice, result;
+    int (*op[4])(int, int);
+
+    op[0] = add;
+    op[1] = subtract;
+    op[2] = multiply;
+    op[3] = divide;
+    printf("Enter two integers: ");
+    scanf("%d %d", &x, &y);
+    printf("Enter:\n 0 to Add\n 1 to Substract\n 2 to Multiply\n 3 to Divide\n Your Choice: ");
+    scanf("%d", &choice);
+    result = op[choice](x, y);
+    printf("%d", result);
+
+    return 0;
+}
+
+int add(int x, int y){
+    return(x + y);
+}
+
+int subtract(int x, int y){
+    return(x - y);
+}
+
+int multiply(int x, int y){
+    return(x * y);
+}
+
+int divide(int x, int y){
+    if (y != 0)
+        return(x / y);
+    else
+        return 0;
+}
